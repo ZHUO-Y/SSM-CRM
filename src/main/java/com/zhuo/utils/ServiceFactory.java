@@ -1,4 +1,4 @@
-package com.bjpowernode.utils;
+package com.zhuo.utils;
 
 public class ServiceFactory {
     public static Object getService(Object service){

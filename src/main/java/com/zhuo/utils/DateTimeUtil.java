@@ -1,4 +1,4 @@
-package com.bjpowernode.utils;
+package com.zhuo.utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

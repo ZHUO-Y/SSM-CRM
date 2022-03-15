@@ -6,9 +6,9 @@
  *
  */
 var rsc_bs_pag = {
-    go_to_page_title: 'Go to page',
-    rows_per_page_title: 'Rows per page',
-    current_page_label: 'Page',
+    go_to_page_title: '跳转到页',
+    rows_per_page_title: '每一页的行数',
+    current_page_label: '页',
     current_page_abbr_label: 'p.',
     total_pages_label: 'of',
     total_pages_abbr_label: '/',

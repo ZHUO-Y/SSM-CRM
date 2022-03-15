@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+ namespace：必须有值，自定义的唯一字符串
+ 推荐使用：dao 接口的全限定名称
+-->
+<mapper namespace="com.zhuo.workbench.dao.ActivityRemarkDao">
+<!--
+
+    <select id="getRemarkListByAid" resultType="c">
+    </select>
+
+    <insert id="saveRemark">
+    </insert>
+-->
+    <delete id="deleteRemarkById">
+        delete from tbl_activity_remark where id = #{id}
+    </delete>
+
+    <update id="updateRemarkById">
+        update
+        tbl_activity_remark
+        set
+        noteContent = #{noteContent},
+        editFlag = #{editFlag},
+        editTime = #{editTime},
+        editBy = #{editBy}
+        where id=#{id}
+    </update>
+
+    <insert id="saveRemark">
+        insert into tbl_activity_remark(
+            id,
+            noteContent,
+            createTime,
+            createBy,
+            editFlag,
+            activityId
+        )
+        values(
+            #{id},
+            #{noteContent},
+            #{createTime},
+            #{createBy},
+            #{editFlag},
+            #{activityId}
+        )
+
+    </insert>
+
+    <select id="getRemarkListByAid" resultType="ActivityRemark">
+        select * from tbl_activity_remark where activityId = #{id} order by createTime;
+    </select>
+
+    <select id="getCountById" resultType="int">
+        select count(*)
+        from tbl_activity_remark
+        where activityId in
+        <foreach collection="array" item="aid" open="(" close=")" separator=","  >
+            #{aid}
+        </foreach>
+    </select>
+
+    <delete id="deleteById" >
+        delete from tbl_activity_remark
+        where activityId in
+        <foreach collection="array" item="aid" open="(" close=")" separator=","  >
+            #{aid}
+        </foreach>
+    </delete>
+
+</mapper>

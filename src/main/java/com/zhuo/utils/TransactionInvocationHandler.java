@@ -1,4 +1,4 @@
-package com.bjpowernode.utils;
+package com.zhuo.utils;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

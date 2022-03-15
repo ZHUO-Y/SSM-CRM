@@ -10,8 +10,7 @@
 <body>
 
         $.ajax({
-
-            url : "",
+            url : "workbench/clue/",
             data : {
 
             },
@@ -19,12 +18,9 @@
             dataType : "json",
             success : function (data) {
 
-
-
             }
-
         })
-
+        User us = (User) session.getAttribute("user");
         String createTime = DateTimeUtil.getSysTime();
         String createBy = ((User)request.getSession().getAttribute("user")).getName();
 

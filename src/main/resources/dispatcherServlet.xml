@@ -5,16 +5,26 @@
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
     <!--组件扫描器，负责找到@controller注解。-->
-    <context:component-scan base-package="com.zhuo.setting.controllers"/>
+    <context:component-scan
+            base-package="com.zhuo.setting.controllers,com.zhuo.workbench.controllers"/>
     <!--组件扫描器：负责找到@ControllerAdvice ,这个组件扫描器放在spring和springMVC的配置文件中都可以-->
     <context:component-scan base-package="com.zhuo.handler"/>
     <!--注册视图解析器，为了避免对于请求资源路径与扩展名上的冗余，原理是字符串拼接。-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="prefix" value=""/>
         <property name="suffix" value=".jsp"/>
     </bean>
 
     <!--注册mvc的注解驱动，负责开启消息转换器-->
     <mvc:annotation-driven/>
+
+    <!--注册拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.zhuo.interceptor.LoginInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
 
 </beans>

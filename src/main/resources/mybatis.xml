@@ -12,11 +12,13 @@
     <!--设置别名-->
     <typeAliases>
         <package name="com.zhuo.setting.entity"/>
+        <package name="com.zhuo.workbench.entity"/>
     </typeAliases>
 
     <mappers>
         <!--指定sql映射文件的位置，告诉 mybatis 要执行的 sql 语句的位置-->
         <package name="com.zhuo.setting.dao"/>
+        <package name="com.zhuo.workbench.dao"/>
     </mappers>
 
 </configuration>
